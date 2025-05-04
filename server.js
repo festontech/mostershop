@@ -3,7 +3,6 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
-const orderRoutes = require('./routes/orderRoutes');
 const path = require('path');
 const cors = require('cors');
 
@@ -23,7 +22,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
-app.use('/api/orders', orderRoutes);
 
 // Serve the main HTML file
 app.get('/', (req, res) => {
@@ -41,10 +39,10 @@ app.get('/product/:id', (req, res) => {
 app.get('/cart', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'cart.html'));
 });
-
-app.get('/checkout', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'checkout.html'));
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'login.html'));
 });
+
 
 const PORT = process.env.PORT || 3000;
 
