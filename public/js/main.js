@@ -1,3 +1,6 @@
+// Cart functionality
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
 // Load products 
   async function loadProducts() {
     try {
@@ -213,11 +216,10 @@ async function getProductById(productId) {
     }
 
     
-    // Cart functionality
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
     
     // Add product to cart
-    function addToCart(id, name, price, imageUrl) {
+    async function addToCart(id, name, price, imageUrl) {
       const existingItem = cart.find(item => item.id === id);
       
       if (existingItem) {
@@ -233,7 +235,6 @@ async function getProductById(productId) {
       }
       
       updateCart();
-      showCartNotification();
     }
     
     // Update cart in localStorage and UI
@@ -251,19 +252,9 @@ async function getProductById(productId) {
       displayCartItems();
     }
     
-    // Show notification when item added to cart
-    function showCartNotification() {
-      const notification = document.getElementById('cart-notification');
-      if (!notification) return;
-      
-      notification.classList.add('show');
-      setTimeout(() => {
-        notification.classList.remove('show');
-      }, 3000);
-    }
     
     // Display cart items on cart page
-    function displayCartItems() {
+    async function displayCartItems() {
       const cartItemsContainer = document.getElementById('cart-container');
       if (!cartItemsContainer) return;
       
@@ -318,12 +309,6 @@ async function getProductById(productId) {
       updateCart();
     }
     
-    // Checkout functionality
-    function checkout() {
-      // You might want to redirect to a checkout page or show a modal
-      window.location.href = '/checkout';
-    }
-    
     // Product search functionality
     function searchProducts() {
       const searchInput = document.getElementById('search-input');
@@ -337,6 +322,7 @@ async function getProductById(productId) {
     
     // Initialize the page
     document.addEventListener('DOMContentLoaded', function() {
+
       // Update cart count on page load
       updateCart();
       
@@ -349,12 +335,6 @@ async function getProductById(productId) {
       // Display product details if on product detail page
       displayProductDetails();
       
-      // Set up search form
-      const searchForm = document.getElementById('search-form');
-      if (searchForm) {
-        searchForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          searchProducts();
-        });
-      }
+     // display cart items if on cart page
+      displayCartItems();
     });
