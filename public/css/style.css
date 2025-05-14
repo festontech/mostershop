@@ -237,38 +237,7 @@
     justify-content: space-between;
     margin-bottom: 10px;
   }
-  
-  .form-container {
-         flex: 1;
-         border: 1px solid #ddd;
-         border-radius: 5px;
-         padding: 20px;
-         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
 
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .form-group input,
-  .form-group select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .checkout-summary {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
-  }
   
   footer {
     background-color: #6e1111;
