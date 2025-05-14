@@ -1,0 +1,7 @@
+<div class="product-card">
+  <img src="<%= product.image %>" alt="<%= product.name %>">
+  <h3><%= product.name %></h3>
+  <p class="price">$<%= product.price.toFixed(2) %></p>
+  <p class="description"><%= product.description %></p>
+  <button class="btn btn-primary add-to-cart" data-product-id="<%= product.id %>">Add to Cart</button>
+</div>
