@@ -1,0 +1,69 @@
+<!-- views/partials/header.ejs - Header partial -->
+<header class="header">
+    <div class="container">
+        <nav class="navbar">
+            <a href="/" class="logo">
+                <img src="/images/logo.png" alt="Logo">
+                RUBY<span>SHOP</span>
+            </a>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/" class="nav-link <%= path === '/' ? 'active' : '' %>">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/shop" class="nav-link <%= path && path.startsWith('/shop') ? 'active' : '' %>">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/shop/category/featured" class="nav-link <%= path === '/shop/category/featured' ? 'active' : '' %>">Featured</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/shop/category/new" class="nav-link <%= path === '/shop/category/new' ? 'active' : '' %>">New Arrivals</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/contact" class="nav-link <%= path === '/contact' ? 'active' : '' %>">Contact</a>
+                </li>
+            </ul>
+            
+            <div class="nav-icons">
+                <div class="nav-icon search-toggle">
+                    <i class="fas fa-search"></i>
+                </div>
+                
+                <a href="/auth/login" class="nav-icon <%= user ? 'd-none' : '' %>">
+                    <i class="fas fa-user"></i>
+                </a>
+                
+                <div class="nav-icon dropdown <%= !user ? 'd-none' : '' %>">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="fas fa-user-circle"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="/auth/profile">My Profile</a>
+                        <a href="/orders">My Orders</a>
+                        <% if (user && user.isAdmin) { %>
+                        <a href="/admin/dashboard">Admin Panel</a>
+                        <% } %>
+                        <a href="/auth/logout">Logout</a>
+                    </div>
+                </div>
+                
+                <a href="/cart" class="nav-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge cart-count">0</span>
+                </a>
+            </div>
+            
+            <button class="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+        
+        <div class="search-form">
+            <form action="/shop/search" method="GET">
+                <input type="text" name="q" placeholder="Search for products..." required>
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+</header>
