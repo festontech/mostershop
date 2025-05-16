@@ -4,7 +4,7 @@
         <nav class="navbar">
             <a href="/" class="logo">
                 <img src="/images/logo.png" alt="Logo">
-                RUBY<span>SHOP</span>
+                <span>Monster</span>shop
             </a>
             
             <ul class="nav-menu">
@@ -13,12 +13,6 @@
                 </li>
                 <li class="nav-item">
                     <a href="/shop" class="nav-link <%= path && path.startsWith('/shop') ? 'active' : '' %>">Shop</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/shop/category/featured" class="nav-link <%= path === '/shop/category/featured' ? 'active' : '' %>">Featured</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/shop/category/new" class="nav-link <%= path === '/shop/category/new' ? 'active' : '' %>">New Arrivals</a>
                 </li>
                 <li class="nav-item">
                     <a href="/contact" class="nav-link <%= path === '/contact' ? 'active' : '' %>">Contact</a>
@@ -38,7 +32,7 @@
                     <a href="#" class="dropdown-toggle">
                         <i class="fas fa-user-circle"></i>
                     </a>
-                    <div class="dropdown-menu">
+                    <div class="hamburger">
                         <a href="/auth/profile">My Profile</a>
                         <a href="/orders">My Orders</a>
                         <% if (user && user.isAdmin) { %>
@@ -59,11 +53,5 @@
             </button>
         </nav>
         
-        <div class="search-form">
-            <form action="/shop/search" method="GET">
-                <input type="text" name="q" placeholder="Search for products..." required>
-                <button type="submit"><i class="fas fa-search"></i></button>
-            </form>
-        </div>
     </div>
 </header>

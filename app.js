@@ -1,11 +1,12 @@
 const express = require('express');
 const path = require('path');
-const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const methodOverride = require('method-override');
 const dotenv = require('dotenv');
-const { connectDB } = require('./config/db');
+const expressLayouts = require('express-ejs-layouts');
+
+const connectDB = require('./config/db');
 const errorHandler = require('./middleware/errorHandler');
 
 // Routes
@@ -27,7 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(methodOverride('_method')); // For PUT and DELETE requests from forms
-app.use(morgan('dev')); // Logging
+
 
 // Session setup
 app.use(
@@ -39,12 +40,23 @@ app.use(
   })
 );
 
+
 // Set view engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.use(expressLayouts);
+app.set('layout', 'layouts/main');
+
 
 // Static files
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Make the current path available in all views
+app.use((req, res, next) => {
+  res.locals.path = req.path;
+  next();
+});
+
 
 // Flash messages middleware
 app.use((req, res, next) => {

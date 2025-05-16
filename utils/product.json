@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Monster Energy Original",
+    "description": "The original Monster Energy drink with a bold, invigorating flavor.",
+    "price": 2.49,
+    "category": "Electronics",
+    "imageUrl": ["/images/products/monster-energy-original-12-x-500-ml.png", "/images/products/monster-energy-original-12-x-500-ml-2.webp"],
+    "stock": 100,
+    "featured": true,
+    "createdAt": "2025-05-14T00:00:00.000Z"
+  },
+  {
+    "name": "Monster Energy Zero Ultra",
+    "description": "A sugar-free version of the classic Monster Energy, offering a light and crisp taste.",
+    "price": 2.49,
+    "category": "Electronics",
+    "imageUrl": ["/images/products/monster-energy-ultra-white-12-x-500-ml.png", "/images/products/monster-energy-ultra-white-12-x-500-ml-2.png"],
+    "stock": 120,
+    "featured": false,
+    "createdAt": "2025-05-14T00:00:00.000Z"
+  },
+  {
+    "name": "Monster Energy Ultra Red",
+    "description": "An ultra-refreshing flavor with a blast of red citrus and a hint of sweet and sour.",
+    "price": 2.49,
+    "category": "Electronics",
+    "imageUrl": ["/images/monster-ultra-red.jpg"],
+    "stock": 80,
+    "featured": false,
+    "createdAt": "2025-05-14T00:00:00.000Z"
+  },
+  {
+    "name": "Monster Energy Pacific Punch",
+    "description": "A tropical punch flavor packed with passion fruit, orange, and guava.",
+    "price": 2.49,
+    "category": "Electronics",
+    "imageUrl": ["/images/monster-pacific-punch.jpg"],
+    "stock": 150,
+    "featured": true,
+    "createdAt": "2025-05-14T00:00:00.000Z"
+  },
+  {
+    "name": "Monster Energy Mango Loco",
+    "description": "A bold and sweet tropical mango flavor, energizing and delicious.",
+    "price": 2.49,
+    "category": "Electronics",
+    "imageUrl": ["/images/monster-mango-loco.jpg"],
+    "stock": 60,
+    "featured": false,
+    "createdAt": "2025-05-14T00:00:00.000Z"
+  },
+  {
+    "name": "Monster Energy Assault",
+    "description": "A classic red flavor with a punch of energy and the original Monster taste.",
+    "price": 2.49,
+    "category": "Electronics",
+    "imageUrl": ["/images/monster-assault.jpg"],
+    "stock": 200,
+    "featured": false,
+    "createdAt": "2025-05-14T00:00:00.000Z"
+  },
+  {
+    "name": "Monster Energy Ultra Violet",
+    "description": "A smooth, slightly tart flavor with a mix of berries and a refreshing citrus twist.",
+    "price": 2.49,
+    "category": "Electronics",
+    "imageUrl": ["/images/monster-ultra-violet.jpg"],
+    "stock": 90,
+    "featured": true,
+    "createdAt": "2025-05-14T00:00:00.000Z"
+  }
+]

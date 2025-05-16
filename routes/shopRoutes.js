@@ -5,7 +5,7 @@ const orderController = require('../controllers/orderController');
 const { isAuth } = require('../middleware/auth');
 
 // Product routes
-router.get('/', productController.getAllfeaturedProducts);
+router.get('/', productController.getAllFeaturedProducts);
 router.get('/shop', productController.getAllProducts);
 router.get('/shop/product/:id', productController.getProductById);
 router.get('/shop/category/:category', productController.getProductsByCategory);

@@ -1,139 +1,3 @@
-
-ecommerce-app/
-├── app.js
-├── package.json
-├── .env
-├── config/
-│   └── db.js                   # MongoDB connectie
-├── controllers/
-│   ├── adminController.js
-│   ├── authController.js
-│   ├── productController.js
-│   └── orderController.js
-├── middleware/
-│   ├── auth.js                 # protect routes (isAuth, isAdmin)
-│   └── errorHandler.js
-├── models/
-│   ├── User.js
-│   ├── Product.js
-│   └── Order.js
-├── public/
-│   ├── css/
-│   ├── js/
-│   └── images/
-├── routes/
-│   ├── adminRoutes.js
-│   ├── authRoutes.js
-│   └── shopRoutes.js
-├── utils/
-│   └── 
-├── views/
-│   ├── layouts/
-│   │   └── main.ejs
-│   ├── partials/
-│   │   ├── navbar.ejs
-│   │   ├── footer.ejs
-|   │   └── prodct-cart.ejs
-│   ├── admin/
-│   │   ├── dashboard.ejs
-│   │   └── products.ejs
-│   ├── auth/
-│   │   ├── login.ejs
-│   │   └── register.ejs
-│   ├── shop/
-│   │   ├── index.ejs
-│   │   ├── product.ejs
-│   │   └── cart.ejs
-│   └── error.ejs
-using struct genarate a app.js main entrypoint and routes backaend using mongodb and express nodejs
-
-I'll create a structured app.js main entrypoint and the required route files for your e-commerce application backend using MongoDB and Express.js.
-
-Let's start with the main app.js file:
-
-
-app.js
-Code 
-Now, let's create the routes files, starting with authRoutes.js:
-
-
-authRoutes.js
-Code 
-Next, let's create the shopRoutes.js file:
-
-
-shopRoutes.js
-Code 
-Finally, let's create the adminRoutes.js file:
-
-
-adminRoutes.js
-Code 
-Let's also create the database connection file (db.js):
-
-
-db.js
-Code 
-Let's create the authentication middleware (auth.js):
-
-
-auth.js
-Code 
-Let's also include the error handling middleware:
-
-
-errorHandler.js
-Code 
-Finally, let's create a sample .env file for your project:
-
-
-.env
-Code 
-These files provide a solid foundation for your e-commerce application. Here's a breakdown of what I've created:
-
-app.js - The main entry point for your application that:
-Sets up Express and necessary middleware
-Configures session management
-Connects to MongoDB
-Sets up routes
-Handles errors and 404 pages
-Routes:
-authRoutes.js - Handles user authentication (login, register, profile)
-shopRoutes.js - Manages public-facing store functionality (products, cart, orders)
-adminRoutes.js - Controls admin panel features (product/order/user management)
-Config and Middleware:
-db.js - MongoDB connection configuration
-auth.js - Authentication middleware for protecting routes
-errorHandler.js - Global error handling middleware
-.env - Environment variables template for configuring your application
-To complete your project, you'll need to:
-
-Implement the controller files (authController.js, productController.js, etc.)
-Create the MongoDB models (User.js, Product.js, Order.js)
-Build the EJS view templates
-Set up package.json with the required dependencies
-Would you like me to help with any of these components next?
-
-
-
-
-create all files for a index page style modern and dark red and white css and views
-
-I'll create the necessary files for a modern index page with a dark red and white color scheme, including CSS and view templates.
-
-Let's start with the main layout file:
-
-
-main.ejs
-Code 
-Now, let's create the CSS files for the dark red and white modern design:
-
-
-Drafting artifact...
- 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -151,45 +15,46 @@ Drafting artifact...
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/partials.css">
     <!-- Page-specific CSS -->
     <% if (typeof pageCSS !== 'undefined') { %>
         <link rel="stylesheet" href="/css/<%= pageCSS %>.css">
     <% } %>
 </head>
 <body>
-    <!-- Header/Navbar -->
-    <%- include('../partials/navbar') %>
-    
+  <!-- Header/Navbar -->
+  <%- include('../partials/navbar') %>
+
+  <div class="page-wrapper">
     <!-- Main Content -->
     <main class="container">
-        <!-- Flash Messages -->
-        <% if (typeof success_msg !== 'undefined' && success_msg.length > 0) { %>
-            <div class="alert alert-success">
-                <%= success_msg %>
-                <span class="close-btn">&times;</span>
-            </div>
-        <% } %>
-        
-        <% if (typeof error_msg !== 'undefined' && error_msg.length > 0) { %>
-            <div class="alert alert-error">
-                <%= error_msg %>
-                <span class="close-btn">&times;</span>
-            </div>
-        <% } %>
-        
-        <!-- Page Content -->
-        <%- body %>
+      <!-- Flash Messages -->
+      <% if (typeof success_msg !== 'undefined' && success_msg.length > 0) { %>
+        <div class="alert alert-success">
+          <%= success_msg %>
+          <span class="close-btn">&times;</span>
+        </div>
+      <% } %>
+
+      <% if (typeof error_msg !== 'undefined' && error_msg.length > 0) { %>
+        <div class="alert alert-error">
+          <%= error_msg %>
+          <span class="close-btn">&times;</span>
+        </div>
+      <% } %>
+
+      <!-- Page Content -->
+      <%- body %>
     </main>
-    
+
     <!-- Footer -->
     <%- include('../partials/footer') %>
-    
-    <!-- Main JavaScript -->
-    <script src="/js/main.js"></script>
-    
-    <!-- Page-specific JavaScript -->
-    <% if (typeof pageJS !== 'undefined') { %>
-        <script src="/js/<%= pageJS %>.js"></script>
-    <% } %>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/main.js"></script>
+  <% if (typeof pageJS !== 'undefined') { %>
+    <script src="/js/<%= pageJS %>.js"></script>
+  <% } %>
 </body>
 </html>

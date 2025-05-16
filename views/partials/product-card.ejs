@@ -1,6 +1,7 @@
+<!-- _product-card.ejs -->
 <div class="product-card">
     <div class="product-image">
-        <img src="<%= product.images[0] || '/images/product-placeholder.jpg' %>" alt="<%= product.name %>">
+        <img src="<%= (product.imageUrl && product.imageUrl[0]) || '/images/product-placeholder.jpg' %>" alt="<%= product.name %>">
         <% if (product.discount > 0) { %>
         <div class="product-badge">-<%= product.discount %>%</div>
         <% } else if (product.isNew) { %>
@@ -23,18 +24,6 @@
         <h3 class="product-title">
             <a href="/shop/product/<%= product._id %>"><%= product.name %></a>
         </h3>
-        <div class="product-rating">
-            <% for (let i = 0; i < 5; i++) { %>
-                <% if (i < Math.floor(product.rating)) { %>
-                    <i class="fas fa-star"></i>
-                <% } else if (i === Math.floor(product.rating) && product.rating % 1 !== 0) { %>
-                    <i class="fas fa-star-half-alt"></i>
-                <% } else { %>
-                    <i class="far fa-star"></i>
-                <% } %>
-            <% } %>
-            <span>(<%= product.reviews || 0 %>)</span>
-        </div>
         <div class="product-price">
             <div>
                 <% if (product.oldPrice) { %>
@@ -42,13 +31,9 @@
                 <% } %>
                 <span class="price">$<%= product.price.toFixed(2) %></span>
             </div>
-            <a href="#" class="add-to-cart" 
-               data-id="<%= product._id %>" 
-               data-name="<%= product.name %>" 
-               data-price="<%= product.price.toFixed(2) %>" 
-               data-image="<%= product.images[0] || '/images/product-placeholder.jpg' %>">
-                <i class="fas fa-shopping-cart"></i>
-            </a>
+            <button class="add-to-cart" data-id="<%= product._id %>">
+                <i class="fas fa-shopping-cart"></i> 
+            </button>
         </div>
     </div>
 </div>

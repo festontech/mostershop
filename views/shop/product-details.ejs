@@ -1,0 +1,46 @@
+
+    <div class="product-detail">
+    <div class="product-detail-images">
+        <div class="product-slider">
+        <div class="main-image">
+            <img id="mainImage" src="<%= product.imageUrl[0] || '/images/product-placeholder.jpg' %>" alt="<%= product.name %>">
+        </div>
+
+        <div class="slider-bullets">
+            <% product.imageUrl.forEach((img, index) => { %>
+                <span class="bullet <%= index === 0 ? 'active' : '' %>" data-src="<%= img %>"></span>
+            <% }) %>
+        </div>
+    </div>
+
+
+
+        <div class="product-detail-content">
+            <h1><%= product.name %></h1>
+
+
+            <p class="product-category"><strong>Category:</strong> <%= product.category %></p>
+
+            <div class="product-price">
+                <% if (product.oldPrice) { %>
+                    <span class="price-old">$<%= product.oldPrice.toFixed(2) %></span>
+                <% } %>
+                <span class="price">$<%= product.price.toFixed(2) %></span>
+            </div>
+
+            <p class="product-description"><%= product.description || 'No description available.' %></p>
+
+            <form action="/cart/add/<%= product._id %>" method="POST">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </form>
+
+            <% if (product.discount > 0) { %>
+                <div class="product-badge">-<%= product.discount %>%</div>
+            <% } else if (product.isNew) { %>
+                <div class="product-badge">New</div>
+            <% } %>
+        </div>
+    </div>
+

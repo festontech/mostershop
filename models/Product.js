@@ -19,11 +19,11 @@ const ProductSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum: ['Electronics', 'Clothing', 'Books', 'Home', 'Beauty', 'Sports', 'Other']
+    enum: ['energy', 'ultra', 'beast', 'juicy','limitted', 'Beauty', 'Sports', 'Other']
   },
   imageUrl: {
-    type: String,
-    default: '/images/default-product.jpg'
+    type: [String],
+    default: ['/images/logo.png']
   },
   stock: {
     type: Number,
