@@ -17,19 +17,51 @@ exports.getAllFeaturedProducts = async (req, res, next) => {
 // GET /shop
 exports.getAllProducts = async (req, res, next) => {
     try {
-        const products = await Product.find().lean();
-        // for (let i = 0; i < products.length; i++) {
-        //     console.log( products[i].imageUrl[1]);
-        // }
+        const sort = req.query.sort || '';
+        const category = req.query.category || '';
+
+        let sortOption = {};
+        switch (sort) {
+            case 'price_asc':
+                sortOption = { price: 1 };
+                break;
+            case 'price_desc':
+                sortOption = { price: -1 };
+                break;
+            case 'name_asc':
+                sortOption = { name: 1 };
+                break;
+            case 'name_desc':
+                sortOption = { name: -1 };
+                break;
+        }
+
+        // Optional category filter
+        const filter = {};
+        if (category) {
+            filter.category = category;
+        }
+
+        // Get filtered & sorted products
+        const products = await Product.find(filter).sort(sortOption).lean();
+
+        // Get unique categories
+        const categories = await Product.distinct('category');
+
         res.render('shop/product', {
             title: 'All Products',
             products,
+            sort,
+            category,
+            categories,
             pageJS: 'shop'
         });
     } catch (error) {
         next(error);
     }
 };
+
+
 
 // GET /shop/product/:id
 exports.getProductById = async (req, res, next) => {
@@ -59,7 +91,6 @@ exports.getProductsByCategory = async (req, res, next) => {
         res.render('shop/index', {
             title: `Category: ${req.params.category}`,
             products,
-            pageJS: 'shop'
         });
     } catch (error) {
         next(error);
@@ -89,7 +120,7 @@ exports.searchProducts = async (req, res, next) => {
 // Display Cart Page
 exports.getCart = (req, res) => {
     const cart = req.session.cart || [];
-    console.log(cart);
+    // console.log(cart);
     res.render('shop/cart', { title: 'Your Cart', cart });
 };
 
@@ -109,23 +140,23 @@ exports.addToCart = async (req, res) => {
     }
 
     const cart = req.session.cart;
-    console.log(cart);
+    // console.log(cart);
     // Check if product is already in cart
-    const existingItem = cart.items.find(item => item.id === product.id);
+    const existingItem = cart.items.find(item => item.productId === product.id);
 
     if (existingItem) {
-        existingItem.qty++;
+        existingItem.quantity++;
     } else {
         cart.items.push({
-            id: product.id,
+            productId: product.id,
             name: product.name,
             price: product.price,
-            qty: 1,
+            quantity: 1,
             image: product.images?.[0] || '/images/product-placeholder.jpg'
         });
     }
 
-    cart.total = cart.items.reduce((sum, item) => sum + item.price * item.qty, 0);
+    cart.total = cart.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
     res.redirect('/cart');
 };
 

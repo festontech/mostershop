@@ -11,7 +11,7 @@ const isAuth = (req, res, next) => {
 
 // Admin check middleware (must be used after isAuth)
 const isAdmin = (req, res, next) => {
-  if (req.session.user && req.session.user.isAdmin) {
+  if (req.session.user && req.session.isAdmin) {
     return next();
   }
   

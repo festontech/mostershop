@@ -7,10 +7,8 @@ exports.getRegisterPage = (req, res) => {
 };
 
 exports.getProfilePage = (req, res) => {
-    // You can customize this logic
-    res.render('auth/profile', {
+    res.render('user/profile', {
         title: 'Your Profile',
-        user: req.user // Assuming you attach user via middleware
     });
 };
 

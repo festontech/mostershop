@@ -8,10 +8,12 @@ exports.getDashboard = async (req, res, next) => {
         const productCount = await Product.countDocuments();
         const orderCount = await Order.countDocuments();
         const userCount = await User.countDocuments();
+        const orders = await Order.find().lean();
 
         res.render('admin/dashboard', {
             title: 'Admin Dashboard',
-            stats: { productCount, orderCount, userCount }
+            orders,
+            stats: { productCount, orderCount, userCount ,}
         });
     } catch (err) {
         next(err);
@@ -29,7 +31,16 @@ exports.getAllProducts = async (req, res, next) => {
 };
 
 exports.getAddProductPage = (req, res) => {
-    res.render('admin/add-product', { title: 'Add Product' });
+    const product = {
+        name: '',
+        description: '',
+        price: 0,
+        category: '',
+        imageUrl: '',
+        stock: 0,
+        featured: false
+    };
+    res.render('admin/edit-product', { title: 'Add Product' , product });
 };
 
 exports.getEditProductPage = async (req, res, next) => {
@@ -54,17 +65,36 @@ exports.addProduct = async (req, res, next) => {
 };
 
 exports.updateProduct = async (req, res, next) => {
-    try {
-        await Product.findByIdAndUpdate(req.params.id, req.body);
-        res.redirect('/admin/products');
-    } catch (err) {
-        next(err);
+    const { name, description, price, category, imageUrl, stock, featured } = req.body;
+
+    if (!name || !description || !price || !category || !imageUrl || !stock) {
+        return res.render('admin/edit-product', {
+            title: 'Edit Product',
+            error_msg: 'Please fill in all fields.',
+            product: { name, description, price, category, imageUrl, stock }
+        });
     }
+    console.log('Updating product with ID:', req.params.id);
+    console.log('New values:', { name, description, price, category, imageUrl, stock, featured });
+
+    await Product.findByIdAndUpdate(req.params.id, {
+        name,
+        description,
+        price: parseFloat(price),
+        category,
+        imageUrl: imageUrl.split(',').map(url => url.trim()),
+        stock: parseInt(stock),
+        featured: featured === 'true' || featured === 'on'  // checkbox returns "on"
+    });
+
+    res.redirect('/admin/products');
 };
 
 exports.deleteProduct = async (req, res, next) => {
     try {
         await Product.findByIdAndDelete(req.params.id);
+        console.log('Product deleted successfully:', req.params.id);
+        req.session.success_msg = 'Product deleted successfully.';
         res.redirect('/admin/products');
     } catch (err) {
         next(err);

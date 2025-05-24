@@ -20,9 +20,8 @@ router.post('/cart/remove/:id', productController.removeFromCart);
 // Order routes (protected)
 router.get('/orders', isAuth, orderController.getUserOrders);
 router.get('/orders/:id', isAuth, orderController.getOrderById);
-router.post('/checkout', isAuth, orderController.createOrder);
-router.post('/checkout/process-payment', isAuth, orderController.processPayment);
-router.get('/checkout/success', isAuth, orderController.checkoutSuccess);
-router.get('/checkout/cancel', isAuth, orderController.checkoutCancel);
+router.get('/checkout', isAuth, orderController.getCheckoutPage);
+router.post('/checkout/processorder', isAuth, orderController.createOrder);
+
 
 module.exports = router;

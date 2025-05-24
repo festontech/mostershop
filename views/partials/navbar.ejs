@@ -24,23 +24,30 @@
                     <i class="fas fa-search"></i>
                 </div>
                 
-                <a href="/auth/login" class="nav-icon <%= user ? 'd-none' : '' %>">
+                <% if (!user) { %>
+                <a href="/auth/login" class="nav-icon">
                     <i class="fas fa-user"></i>
                 </a>
+                <% } %>
+
                 
-                <div class="nav-icon dropdown <%= !user ? 'd-none' : '' %>">
+                <% if (user) { %>
+                <div class="nav-icon dropdown">
                     <a href="#" class="dropdown-toggle">
                         <i class="fas fa-user-circle"></i>
                     </a>
                     <div class="dropdown-menu">
                         <a href="/auth/profile">My Profile</a>
                         <a href="/orders">My Orders</a>
-                        <% if (user && user.isAdmin) { %>
+                        <% if (isAdmin) { %>
                         <a href="/admin/dashboard">Admin Panel</a>
+                        <a href="/admin/products">Admin Productsl</a>
                         <% } %>
                         <a href="/auth/logout">Logout</a>
                     </div>
                 </div>
+                <% } %>
+
                 
                 <a href="/cart" class="nav-icon">
                     <i class="fas fa-shopping-cart"></i>

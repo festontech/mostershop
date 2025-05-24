@@ -4,7 +4,7 @@ const Order = require('../models/Order');
 exports.getUserOrders = async (req, res, next) => {
     try {
         const orders = await Order.find({ user: req.session.user._id }).lean();
-        res.render('shop/orders', { title: 'My Orders', orders });
+        res.render('user/orders', { title: 'My Orders', orders });
     } catch (err) {
         next(err);
     }
@@ -31,35 +31,29 @@ exports.createOrder = async (req, res, next) => {
         const cart = req.session.cart;
         if (!cart || cart.length === 0) return res.redirect('/cart');
 
-        const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+        const total = cart.total.toFixed(2)
 
         const newOrder = new Order({
             user: req.session.user._id,
-            items: cart,
+            items: cart.items,
             total,
             status: 'Pending'
         });
 
         await newOrder.save();
+console.log('Order saved successfully:', newOrder);
         req.session.cart = [];
-        res.redirect('/checkout/success');
+        req.session.success_msg = 'Thank you for your order! Your order has been placed successfully.';
+        res.redirect('/orders');
     } catch (err) {
         next(err);
     }
 };
 
 // Simulated Payment Processing
-exports.processPayment = (req, res) => {
-    // Integrate real payment logic here
-    res.redirect('/checkout/success');
-};
+exports.getCheckoutPage = (req, res) => {
+    const cart = req.session.cart || [];
 
-// Checkout Success Page
-exports.checkoutSuccess = (req, res) => {
-    res.render('shop/checkout-success', { title: 'Payment Successful' });
-};
 
-// Checkout Cancel Page
-exports.checkoutCancel = (req, res) => {
-    res.render('shop/checkout-cancel', { title: 'Payment Cancelled' });
+    res.render('shop/checkout', { title: 'checkout', cart  });
 };

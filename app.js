@@ -54,6 +54,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Make the current path available in all views
 app.use((req, res, next) => {
   res.locals.path = req.path;
+
   next();
 });
 
@@ -63,6 +64,7 @@ app.use((req, res, next) => {
   res.locals.success_msg = req.session.success_msg;
   res.locals.error_msg = req.session.error_msg;
   res.locals.user = req.session.user || null;
+  res.locals.isAdmin = req.session.isAdmin || false;
   
   // Clear flash messages after displaying
   if (req.session.success_msg) delete req.session.success_msg;
