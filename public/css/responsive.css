@@ -1,0 +1,217 @@
+@media (max-width: 1200px) {
+  html {
+    font-size: 60%;
+  }
+
+  .container {
+    max-width: 96rem;
+  }
+
+  .hero-content {
+    max-width: 50rem;
+  }
+}
+
+/* Large Devices (Desktops) */
+@media (max-width: 992px) {
+  html {
+    font-size: 58%;
+  }
+
+  .container {
+    max-width: 72rem;
+  }
+
+  .hero {
+    padding: 6rem 0;
+  }
+
+  .hero h1 {
+    font-size: 4rem;
+  }
+
+  .hero-image {
+    width: 45%;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Medium Devices (Tablets) */
+@media (max-width: 768px) {
+  html {
+    font-size: 56%;
+  }
+
+  .container {
+    max-width: 54rem;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 7.2rem;
+    left: -100%;
+    width: 80%;
+    height: 100vh;
+    background-color: var(--black);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 4rem 2rem;
+    transition: left 0.3s ease;
+    z-index: 999;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-item {
+    margin: 1.5rem 0;
+    width: 100%;
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .hero-image {
+    opacity: 0.4;
+    width: 100%;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    text-align: center;
+    padding: 0 2rem;
+  }
+
+  .hero-overlay {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  .grid-3, .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section {
+    padding: 6rem 0;
+  }
+
+  .section-title {
+    margin-bottom: 4rem;
+  }
+}
+
+/* Small Devices (Landscape Phones) */
+@media (max-width: 576px) {
+  html {
+    font-size: 54%;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0 1.5rem;
+  }
+
+  h1 {
+    font-size: 3.2rem;
+  }
+
+  h2 {
+    font-size: 2.6rem;
+  }
+
+  .hero {
+    padding: 5rem 0;
+  }
+
+  .hero h1 {
+    font-size: 3.6rem;
+  }
+
+  .btn {
+    padding: 1.2rem 2rem;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    gap: 2rem;
+  }
+
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 5rem 0;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-input {
+    border-radius: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .newsletter-btn {
+    border-radius: 0.4rem;
+    width: 100%;
+  }
+}
+
+/* Extra Small Devices (Portrait Phones) */
+@media (max-width: 320px) {
+  html {
+    font-size: 50%;
+  }
+
+  .navbar {
+    padding: 1rem 0;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+
+  .logo img {
+    height: 3rem;
+  }
+
+  .section-title h2 {
+    font-size: 2.4rem;
+  }
+
+  .product-image {
+    height: 20rem;
+  }
+
+  .feature-box {
+    padding: 2rem 1rem;
+  }
+
+  .feature-icon {
+    font-size: 3rem;
+  }
+
+  .feature-title {
+    font-size: 1.8rem;
+  }
+}

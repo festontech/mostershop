@@ -1,0 +1,46 @@
+ecommerce-app/
+├── app.js
+├── package.json
+├── .env
+├── config/
+│   └── db.js                   # MongoDB connectie
+├── controllers/
+│   ├── adminController.js
+│   ├── authController.js
+│   ├── productController.js
+│   └── orderController.js
+├── middleware/
+│   ├── auth.js                 # protect routes (isAuth, isAdmin)
+│   └── errorHandler.js
+├── models/
+│   ├── User.js
+│   ├── Product.js
+│   └── Order.js
+├── public/
+│   ├── css/
+│   ├── js/
+│   └── images/
+├── routes/
+│   ├── adminRoutes.js
+│   ├── authRoutes.js
+│   └── shopRoutes.js
+├── utils/
+│   └── 
+├── views/
+│   ├── layouts/
+│   │   └── main.ejs
+│   ├── partials/
+│   │   ├── navbar.ejs
+│   │   ├── footer.ejs
+|   │   └── prodct-cart.ejs
+│   ├── admin/
+│   │   ├── dashboard.ejs
+│   │   └── products.ejs
+│   ├── auth/
+│   │   ├── login.ejs
+│   │   └── register.ejs
+│   ├── shop/
+│   │   ├── index.ejs
+│   │   ├── product.ejs
+│   │   └── cart.ejs
+│   └── error.ejs

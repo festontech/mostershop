@@ -1,0 +1,73 @@
+<h1>Edit Product</h1>
+
+       <form action="<%= product && product._id ? '/admin/products/edit/' + product._id : '/admin/products/add' %>" method="POST">
+            <input type="hidden" name="_id" value="<%= product && product._id ? product._id : '' %>">
+            <div class="form-group">
+                <label for="name">Product Name:</label>
+                <input type="text" id="name" name="name" value="<%= product.name %>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" required><%= product.description %></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" step="0.01" id="price" name="price" value="<%= product.price %>" required>
+            </div>
+            <div class="form-group">
+                <label for="discount">discount:</label>
+                <input type="number" step="0.01" id="discount" name="discount" value="<%= product.discount %>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="stock">Stock Quantity:</label>
+                <input type="number" id="stock" name="stock" value="<%= product.stock %>" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="">Select a category</option>
+                    <% categories.forEach(function(cat) { %>
+                        <% if (!cat.parent) { %>
+                            <!-- Parent category -->
+                            <option value="<%= cat._id %>" <%= product.category === cat._id ? 'selected' : '' %>>
+                                <%= cat.name %>
+                            </option>
+                            <!-- Child categories -->
+                            <% categories.filter(child => child.parent === cat._id).forEach(function(child) { %>
+                                <option value="<%= child._id %>" <%= product.category === child._id ? 'selected' : '' %>>
+                                    &nbsp;&nbsp;└ <%= child.name %>
+                                </option>
+                            <% }) %>
+                        <% } %>
+                    <% }) %>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="imageUrl">Image URLs (comma separated):</label>
+                <input type="text" id="imageUrl" name="imageUrl" value="<%= product.imageUrl %>">
+            </div>
+                                   
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="featured" value="true" <%= product.featured ? 'checked' : '' %>>
+                    Featured Product
+                </label>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit">Save Changes</button>
+                <a href="/admin/products" class="btn-cancel">Cancel</a>
+                <a href="/admin/products/delete/<%= product._id %>" class="btn-secondary">delete</a>
+            </div>
+
+        </form>
+        <form action="/admin/products/delete/<%= product._id %>" method="POST">\
+            <input type="hidden" name="_id" value="<%= product && product._id ? product._id : '' %>">
+            <div class="form-actions">
+                <button type="submit">delete product</button>
+        </form>

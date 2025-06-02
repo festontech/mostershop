@@ -1,0 +1,72 @@
+
+<h2 class="mt-4">Dashboard</h2>
+<div class="row my-4">
+  <div class="col-md-3">
+    <div class="card text-white bg-primary mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Total Sales</h5>
+        <p class="card-text">$12,345</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-white bg-success mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Orders</h5>
+        <p class="card-text">320</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-white bg-warning mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Products</h5>
+        <p class="card-text">58</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-white bg-danger mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Users</h5>
+        <p class="card-text">128</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<h2>Orders</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Customer</th>
+      <th>Status</th>
+      <th>Total</th>
+      <th>Change Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% orders.forEach(order => { %>
+      <tr>
+        <td><%= order._id %></td>
+        <td><%= order.user?.naam || 'Unknown user' %></td>
+        <td><span class="badge bg-secondary"><%= order.status %></span></td>
+        <td>$<%= order.total.toFixed(2) %></td>
+        <td>
+          <form method="POST" action="/admin/order/status/<%= order._id %>" class="d-inline">
+            <select name="status" class="form-select form-select-sm d-inline w-auto">
+              <% ['Pending', 'Processing', 'Shipped', 'Delivered', 'Cancelled'].forEach(s => { %>
+                <option value="<%= s %>" <%= s === order.status ? 'selected' : '' %>><%= s %></option>
+              <% }) %>
+            </select>
+            <button type="submit" class="btn btn-sm btn-primary">Update</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+

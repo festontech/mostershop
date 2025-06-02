@@ -1,24 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= title %> - Monstershop</title>
-  <link rel="stylesheet" href="/css/style.css">
-  <%- typeof extraStyles !== 'undefined' ? extraStyles : '' %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= typeof title !== 'undefined' ? title : 'Modern E-Commerce' %></title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/partials.css">
+    <!-- Page-specific CSS -->
+    <% if (typeof pageCSS !== 'undefined') { %>
+        <link rel="stylesheet" href="/css/<%= pageCSS %>.css">
+    <% } %>
 </head>
 <body>
-  <%- include('../partials/header') %>
-  
-  <main>
-    <div class="container">
+  <!-- Header/Navbar -->
+  <%- include('../partials/navbar') %>
+
+  <div class="page-wrapper">
+    <!-- Main Content -->
+    <main class="container">
+      <!-- Flash Messages -->
+      <% if (typeof success_msg !== 'undefined' && success_msg.length > 0) { %>
+        <div class="alert alert-success">
+          <%= success_msg %>
+          <span class="close-btn">&times;</span>
+        </div>
+      <% } %>
+
+      <% if (typeof error_msg !== 'undefined' && error_msg.length > 0) { %>
+        <div class="alert alert-error">
+          <%= error_msg %>
+          <span class="close-btn">&times;</span>
+        </div>
+      <% } %>
+
+      <!-- Page Content -->
       <%- body %>
-    </div>
-  </main>
-  
-  <%- include('../partials/footer') %>
-  
+    </main>
+
+    <!-- Footer -->
+    <%- include('../partials/footer') %>
+  </div>
+
+  <!-- Scripts -->
   <script src="/js/main.js"></script>
-  <%- typeof extraScripts !== 'undefined' ? extraScripts : '' %>
+  <% if (typeof pageJS !== 'undefined') { %>
+    <script src="/js/<%= pageJS %>.js"></script>
+  <% } %>
 </body>
 </html>

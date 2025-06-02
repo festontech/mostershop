@@ -1,0 +1,36 @@
+<h1>Categories</h1>
+
+  <form method="POST" action="/admin/categories/add">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" required value="<%=categories.name %>">
+
+    <label for="parent">Parent categories:</label>
+    <select name="parent" id="parent">
+      <option value="">-- None --</option>
+      <% categories.forEach(cat => { %>
+        <% if (!categories || cat._id !== categories._id) { %>
+          <option value="<%= cat._id %>" <%= categories && categories.parent && categories.parent.toString() === cat._id.toString() ? 'selected' : '' %>>
+            <%= cat.name %>
+          </option>
+        <% } %>
+      <% }); %>
+    </select>
+
+    <button type="submit"><%= categories ? 'Update' : 'Add' %> categories</button>
+  </form>
+
+  <h2>All Categories</h2>
+  <ul>
+    <% categories.forEach(cat => { %>
+      <li>
+        <strong><%= cat.name %></strong>
+        <% if (cat.parent) { %> (Parent: <%= cat.parent.name %>) <% } %>
+        - 
+        <form action="/admin/categories/delete/<%= cat._id %>" method="POST">
+            <input type="hidden" name="_id" value="<%= cat && cat._id ? cat._id : '' %>">
+            <div class="form-actions">
+                <button type="submit" class="bg-secondary" >delete</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>

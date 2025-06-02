@@ -1,0 +1,350 @@
+[
+  {
+    "name": "Full Throttle Zero Sugar",
+    "description": "Full Throttle Zero Sugar energy drink with a unique and powerful flavor.",
+    "price": 1.55,
+    "category": "monster_original_001",
+    "imageUrl": [
+      "/images/monster-energy-full-throttle-zero-sugar-12-x-500-ml-2.webp",
+      "/images/monster-energy-full-throttle-zero-sugar-12-x-500-ml.png"
+    ],
+    "stock": 56,
+    "featured": false
+  },
+  {
+    "name": "Juiced Aussie Style Lemonade",
+    "description": "Juiced Aussie Style Lemonade energy drink with a unique and powerful flavor.",
+    "price": 1.54,
+    "category": "monster_juiced_001",
+    "imageUrl": [
+      "/images/monster-energy-juiced-aussie-style-lemonade-12-x-500-ml-2.webp",
+      "/images/monster-energy-juiced-aussie-style-lemonade-12-x-500-ml.png"
+    ],
+    "stock": 96,
+    "featured": true
+  },
+  {
+    "name": "Juiced Bad Apple",
+    "description": "Juiced Bad Apple energy drink with a unique and powerful flavor.",
+    "price": 2.13,
+    "category": "monster_juiced_001",
+    "imageUrl": [
+      "/images/monster-energy-juiced-bad-apple-12-x-500-ml-2.webp",
+      "/images/monster-energy-juiced-bad-apple-12-x-500-ml.png"
+    ],
+    "stock": 24,
+    "featured": true
+  },
+  {
+    "name": "Juiced Khaotic",
+    "description": "Juiced Khaotic energy drink with a unique and powerful flavor.",
+    "price": 1.91,
+    "category": "monster_juiced_001",
+    "imageUrl": [
+      "/images/monster-energy-juiced-khaotic-12-x-500-ml-2.webp",
+      "/images/monster-energy-juiced-khaotic-12-x-500-ml.png"
+    ],
+    "stock": 95,
+    "featured": true
+  },
+  {
+    "name": "Juiced Mango Loco",
+    "description": "Juiced Mango Loco energy drink with a unique and powerful flavor.",
+    "price": 2.08,
+    "category": "monster_juiced_001",
+    "imageUrl": [
+      "/images/monster-energy-juiced-mango-loco-12-x-500-ml-2.webp",
+      "/images/monster-energy-juiced-mango-loco-12-x-500-ml.png"
+    ],
+    "stock": 64,
+    "featured": true
+  },
+  {
+    "name": "Juiced Monarch",
+    "description": "Juiced Monarch energy drink with a unique and powerful flavor.",
+    "price": 1.65,
+    "category": "monster_juiced_001",
+    "imageUrl": [
+      "/images/monster-energy-juiced-monarch-12-x-500-ml-2.webp",
+      "/images/monster-energy-juiced-monarch-12-x-500-ml.png"
+    ],
+    "stock": 49,
+    "featured": true
+  },
+  {
+    "name": "Mixxd Punch",
+    "description": "Mixxd Punch energy drink with a unique and powerful flavor.",
+    "price": 1.9,
+    "category": "monster_original_001",
+    "imageUrl": [
+      "/images/monster-energy-mixxd-punch-12-x-500-ml-2.webp",
+      "/images/monster-energy-mixxd-punch-12-x-500-ml.png"
+    ],
+    "stock": 24,
+    "featured": true
+  },
+  {
+    "name": "Monster Original",
+    "description": "Original Monster energy drink with a unique and powerful flavor.",
+    "price": 2.15,
+    "category": "monster_original_001",
+    "imageUrl": [
+      "/images/monster-energy-original-12-x-500-ml-2.webp",
+      "/images/monster-energy-original-12-x-500-ml.png"
+    ],
+    "stock": 23,
+    "featured": false
+  },
+  {
+    "name": "Original Zero Sugar",
+    "description": "Original Zero Sugar energy drink with a unique and powerful flavor.",
+    "price": 1.55,
+    "category": "monster_original_001",
+    "imageUrl": [
+      "/images/monster-energy-original-zero-sugar-12-x-500-ml-2.webp",
+      "/images/monster-energy-original-zero-sugar-12-x-500-ml.png"
+    ],
+    "stock": 29,
+    "featured": true
+  },
+  {
+    "name": "Pacific Punch",
+    "description": "Pacific Punch energy drink with a unique and powerful flavor.",
+    "price": 1.78,
+    "category": "monster_original_001",
+    "imageUrl": [
+      "/images/monster-energy-pacific-punch-12-x-500-ml-2.webp",
+      "/images/monster-energy-pacific-punch-12-x-500-ml.png"
+    ],
+    "stock": 59,
+    "featured": true
+  },
+  {
+    "name": "Pipeline Punch",
+    "description": "Pipeline Punch energy drink with a unique and powerful flavor.",
+    "price": 1.73,
+    "category": "monster_original_001",
+    "imageUrl": [
+      "/images/monster-energy-pipeline-punch-12-x-500-ml-2.webp",
+      "/images/monster-energy-pipeline-punch-12-x-500-ml.png"
+    ],
+    "stock": 97,
+    "featured": false
+  },
+  {
+    "name": "The Doctor",
+    "description": "The Doctor energy drink with a unique and powerful flavor.",
+    "price": 2.16,
+    "category": "monster_original_001",
+    "imageUrl": [
+      "/images/monster-energy-the-doctor-12-x-500-ml-2.webp",
+      "/images/monster-energy-the-doctor-12-x-500-ml.png"
+    ],
+    "stock": 43,
+    "featured": false
+  },
+  {
+    "name": "Ultra Black",
+    "description": "Ultra Black energy drink with a unique and powerful flavor.",
+    "price": 1.59,
+    "category": "monster_ultra_001",
+    "imageUrl": [
+      "/images/monster-energy-ultra-black-12-x-500-ml-2.webp",
+      "/images/monster-energy-ultra-black-12-x-500-ml.png"
+    ],
+    "stock": 32,
+    "featured": false
+  },
+  {
+    "name": "Ultra Blue",
+    "description": "Ultra Blue energy drink with a unique and powerful flavor.",
+    "price": 1.93,
+    "category": "monster_ultra_001",
+    "imageUrl": [
+      "/images/monster-energy-ultra-blue-12-x-500-ml-2.webp",
+      "/images/monster-energy-ultra-blue-12-x-500-ml.png"
+    ],
+    "stock": 50,
+    "featured": true
+  },
+  {
+    "name": "Ultra Fantasy Ruby Red",
+    "description": "Ultra Fantasy Ruby Red energy drink with a unique and powerful flavor.",
+    "price": 1.78,
+    "category": "monster_ultra_001",
+    "imageUrl": [
+      "/images/monster-energy-ultra-fantasy-ruby-red-12-x-500-ml-2.webp",
+      "/images/monster-energy-ultra-fantasy-ruby-red-12-x-500-ml.png"
+    ],
+    "stock": 56,
+    "featured": true
+  },
+  {
+    "name": "Ultra Fiesta Mango",
+    "description": "Ultra Fiesta Mango energy drink with a unique and powerful flavor.",
+    "price": 2.15,
+    "category": "monster_ultra_001",
+    "imageUrl": [
+      "/images/monster-energy-ultra-fiesta-mango-12-x-500-ml-2.webp",
+      "/images/monster-energy-ultra-fiesta-mango-12-x-500-ml.png"
+    ],
+    "stock": 37,
+    "featured": true
+  },
+  {
+    "name": "Ultra Gold",
+    "description": "Ultra Gold energy drink with a unique and powerful flavor.",
+    "price": 1.91,
+    "category": "monster_ultra_001",
+    "imageUrl": [
+      "/images/monster-energy-ultra-gold-12-x-500-ml-2.webp",
+      "/images/monster-energy-ultra-gold-12-x-500-ml.png"
+    ],
+    "stock": 24,
+    "featured": false
+  },
+  {
+    "name": "Ultra Paradise",
+    "description": "Ultra Paradise energy drink with a unique and powerful flavor.",
+    "price": 1.99,
+    "category": "monster_ultra_001",
+    "imageUrl": [
+      "/images/monster-energy-ultra-paradise-12-x-500-ml-2.webp",
+      "/images/monster-energy-ultra-paradise-12-x-500-ml.png"
+    ],
+    "stock": 15,
+    "featured": true
+  },
+  {
+    "name": "Ultra Peachy Keen",
+    "description": "Ultra Peachy Keen energy drink with a unique and powerful flavor.",
+    "price": 1.51,
+    "category": "monster_ultra_001",
+    "imageUrl": [
+      "/images/monster-energy-ultra-peachy-keen-12-x-500-ml-2.webp",
+      "/images/monster-energy-ultra-peachy-keen-12-x-500-ml.png"
+    ],
+    "stock": 53,
+    "featured": false
+  },
+  {
+    "name": "Ultra Rosa",
+    "description": "Ultra Rosa energy drink with a unique and powerful flavor.",
+    "price": 2.0,
+    "category": "monster_ultra_001",
+    "imageUrl": [
+      "/images/monster-energy-ultra-rosa-12-x-500-ml-2.webp",
+      "/images/monster-energy-ultra-rosa-12-x-500-ml.png"
+    ],
+    "stock": 16,
+    "featured": true
+  },
+  {
+    "name": "Ultra Strawberry Dreams",
+    "description": "Ultra Strawberry Dreams energy drink with a unique and powerful flavor.",
+    "price": 1.57,
+    "category": "monster_ultra_001",
+    "imageUrl": [
+      "/images/monster-energy-ultra-strawberry-dreams-12-x-500-ml-2.webp",
+      "/images/monster-energy-ultra-strawberry-dreams-12-x-500-ml.png"
+    ],
+    "stock": 39,
+    "featured": true
+  },
+  {
+    "name": "Ultra Violet",
+    "description": "Ultra Violet energy drink with a unique and powerful flavor.",
+    "price": 1.95,
+    "category": "monster_ultra_001",
+    "imageUrl": [
+      "/images/monster-energy-ultra-violet-12-x-500-ml-2.webp",
+      "/images/monster-energy-ultra-violet-12-x-500-ml.png"
+    ],
+    "stock": 38,
+    "featured": true
+  },
+  {
+    "name": "Ultra Watermelon",
+    "description": "Ultra Watermelon energy drink with a unique and powerful flavor.",
+    "price": 2.04,
+    "category": "monster_ultra_001",
+    "imageUrl": [
+      "/images/monster-energy-ultra-watermelon-12-x-500-ml-2.webp",
+      "/images/monster-energy-ultra-watermelon-12-x-500-ml.png"
+    ],
+    "stock": 61,
+    "featured": true
+  },
+  {
+    "name": "Ultra White",
+    "description": "Ultra White energy drink with a unique and powerful flavor.",
+    "price": 1.81,
+    "category": "monster_ultra_001",
+    "imageUrl": [
+      "/images/monster-energy-ultra-white-12-x-500-ml-2.webp",
+      "/images/monster-energy-ultra-white-12-x-500-ml.png"
+    ],
+    "stock": 21,
+    "featured": true
+  },
+  {
+    "name": "Red Bull Original",
+    "description": "Original Red Bull energy drink with a unique and powerful flavor.",
+    "price": 1.25,
+    "category": "red_bull_energy_001",
+    "imageUrl": [
+      "/images/red-bull-original-24-x-250-ml-2.webp",
+      "/images/red-bull-original-24-x-250-ml.png"
+    ],
+    "stock": 22,
+    "featured": true
+  },
+  {
+    "name": "Monster Assault Black",
+    "description": "Monster Assault Black energy drink with intense flavor and maximum energy boost.",
+    "price": 2.25,
+    "category": "monster_assault_001",
+    "imageUrl": [
+      "/images/monster-energy-assault-black-12-x-500-ml-2.webp",
+      "/images/monster-energy-assault-black-12-x-500-ml.png"
+    ],
+    "stock": 18,
+    "featured": true
+  },
+  {
+    "name": "Monster Assault Energy",
+    "description": "Monster Assault Energy drink with military-inspired flavor and powerful energy formula.",
+    "price": 2.10,
+    "category": "monster_assault_001",
+    "imageUrl": [
+      "/images/monster-energy-assault-12-x-500-ml-2.webp",
+      "/images/monster-energy-assault-12-x-500-ml.png"
+    ],
+    "stock": 35,
+    "featured": false
+  },
+  {
+    "name": "Red Bull Sugar Free",
+    "description": "Red Bull Sugar Free energy drink with zero sugar and same great taste.",
+    "price": 1.35,
+    "category": "red_bull_sugar_free_001",
+    "imageUrl": [
+      "/images/red-bull-sugar-free-24-x-250-ml-2.webp",
+      "/images/red-bull-sugar-free-24-x-250-ml.png"
+    ],
+    "stock": 44,
+    "featured": true
+  },
+  {
+    "name": "Red Bull Zero",
+    "description": "Red Bull Zero energy drink with zero calories and maximum energy.",
+    "price": 1.40,
+    "category": "red_bull_sugar_free_001",
+    "imageUrl": [
+      "/images/red-bull-zero-24-x-250-ml-2.webp",
+      "/images/red-bull-zero-24-x-250-ml.png"
+    ],
+    "stock": 28,
+    "featured": false
+  }
+]

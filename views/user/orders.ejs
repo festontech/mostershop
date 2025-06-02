@@ -1,0 +1,35 @@
+<h2>My Orders</h2>
+  
+  <% if (orders.length === 0) { %>
+    <p>You have not placed any orders yet.</p>
+  <% } else { %>
+    <table class="table table-bordered table-hover mt-3">
+      <thead class="table-light">
+        <tr>
+          <th>Order ID</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Total</th>
+          <th>Items</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% orders.forEach(order => { %>
+          <tr>
+            <td><%= order._id %></td>
+            <td><%= new Date(order.createdAt).toLocaleDateString() %></td>
+            <td><span class="badge bg-info text-dark"><%= order.status %></span></td>
+            <td>$<%= order.total.toFixed(2) %></td>
+            <td>
+              <ul class="list-unstyled mb-0">
+                <% order.items.forEach(item => { %>
+                  <li><%= item.name %> × <%= item.quantity %> - $<%= item.price.toFixed(2) %></li>
+                <% }) %>
+              </ul>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } %>
+</div>

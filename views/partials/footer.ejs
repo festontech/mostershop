@@ -1,12 +1,88 @@
-<footer>
-  <div class="container">
-    <p>&copy; <%= new Date().getFullYear() %> Monstershop. All rights reserved.</p>
-    <p>
-      <a href="https://jigsaw.w3.org/css-validator/check/referer">
-        <img style="border:0;width:88px;height:31px"
-          src="https://jigsaw.w3.org/css-validator/images/vcss"
-          alt="Valid CSS!" />
-      </a>
-    </p>
-  </div>
+<footer class="footer">
+    <div class="container">
+        <div class="footer-top">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <span>Monster</span>shop
+                </div>
+                <p class="footer-description">
+                    Monster shop is your one-stop destination for all things monster energy. From the latest flavors to exclusive merchandise, we have everything you need to fuel your monster lifestyle.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-pinterest"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="/">Home</a></li>
+                    <li class="footer-link"><a href="/shop">Shop</a></li>
+                    <li class="footer-link"><a href="/shop/category/featured">Featured</a></li>
+                    <li class="footer-link"><a href="/shop/category/new">New Arrivals</a></li>
+                    <li class="footer-link"><a href="/contact">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-heading">Account</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="/auth/login">Login</a></li>
+                    <li class="footer-link"><a href="/auth/register">Register</a></li>
+                    <li class="footer-link"><a href="/cart">Shopping Cart</a></li>
+                    <li class="footer-link"><a href="/orders">Track Order</a></li>
+                    <li class="footer-link"><a href="/auth/profile">My Profile</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-heading">Contact Us</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <p>Monster town avans</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div>
+                        <p>+1 234 567 8900</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <p>info@festontech.nl</p>
+                    </div>
+                </div>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                    <button type="submit" class="newsletter-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; <%= new Date().getFullYear() %> TYCHO VAN OOIJEN. All Rights Reserved.</p>
+        </div>
+    </div>
 </footer>

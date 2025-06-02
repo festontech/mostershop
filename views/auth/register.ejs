@@ -1,0 +1,58 @@
+<div class="auth-container">
+    <div class="auth-box">
+        <h2>Create an Account</h2>
+
+        <form action="/auth/register" method="POST">
+            <div class="form-group">
+                <label for="naam">voledige naam</label>
+                <input type="text" id="naam" name="naam" required class="form-control" placeholder="Enter your name">
+            </div>
+
+            <div class="form-group">
+                <label for="adres">adres</label>
+                <input type="text" id="adres" name="adres" required class="form-control" placeholder="Street + number">
+            </div>
+
+            <div class="form-group">
+                <label for="postcode">Postcode</label>
+                <input type="text" id="postcode" name="postcode" required class="form-control" placeholder="1234 AB">
+            </div>
+
+            <div class="form-group">
+                <label for="woonplaats">woonplaats</label>
+                <input type="text" id="woonplaats" name="woonplaats" required class="form-control" placeholder="Enter your city">
+            </div>
+
+            <div class="form-group">
+                <label for="land">land</label>
+                <input type="text" id="land" name="land" required class="form-control" placeholder="Enter your country">
+            </div>
+
+            <div class="form-group">
+                <label for="telefoonnummer">telefoonnummer</label>
+                <input type="tel" id="telefoonnummer" name="telefoonnummer" class="form-control" placeholder="Optional phone number">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" required class="form-control" placeholder="Enter your email">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required class="form-control" placeholder="Create a password">
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required class="form-control" placeholder="Confirm your password">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+
+        <p class="auth-footer">
+            Already have an account? <a href="/auth/login">Login here</a>
+        </p>
+    </div>
+</div>

@@ -1,3 +1,4 @@
+// config/database.js - MongoDB connection setup
 const mongoose = require('mongoose');
 
 const connectDB = async () => {
@@ -6,9 +7,10 @@ const connectDB = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
+    
     console.log(`MongoDB Connected: ${conn.connection.host}`);
-  } catch (error) {
-    console.error(`Error: ${error.message}`);
+  } catch (err) {
+    console.error(`Error connecting to MongoDB: ${err.message}`);
     process.exit(1);
   }
 };
