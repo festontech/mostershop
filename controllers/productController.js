@@ -6,10 +6,12 @@ exports.getAllHomeProducts = async (req, res, next) => {
     try {
         const featuredProducts = await Product.find({ featured: true }).limit(8).lean();
         const latestProducts = await Product.find().sort({ createdAt: -1 }).limit(8).lean();
+        const discountedProducts = await Product.find({ discount: { $gt: 0 } }).limit(8).lean();
         res.render('shop/index', {
             title: 'Featured Products',
             featuredProducts: featuredProducts,
             latestProducts: latestProducts,
+            discountedProducts: discountedProducts,
         });
     } catch (error) {
         next(error);

@@ -44,6 +44,7 @@ exports.getAddProductPage = (req, res) => {
         name: '',
         description: '',
         price: 0,
+        discount: 0,
         category: '',
         imageUrl: '',
         stock: 0,
@@ -65,8 +66,8 @@ exports.getEditProductPage = async (req, res, next) => {
 
 exports.addProduct = async (req, res, next) => {
     try {
-        const { name, price, description, category, image } = req.body;
-        const newProduct = new Product({ name, price, description, category, image });
+        const { name, price,discount, description, category, image } = req.body;
+        const newProduct = new Product({ name, price,discount, description, category, image });
         await newProduct.save();
         res.redirect('/admin/products');
     } catch (err) {
@@ -75,22 +76,23 @@ exports.addProduct = async (req, res, next) => {
 };
 
 exports.updateProduct = async (req, res, next) => {
-    const { name, description, price, category, imageUrl, stock, featured } = req.body;
+    const { name, description, price, discount, category, imageUrl, stock, featured } = req.body;
 
-    if (!name || !description || !price || !category || !imageUrl || !stock) {
+    if (!name || !description || !price ||!discount|| !category || !imageUrl || !stock) {
         return res.render('admin/edit-product', {
             title: 'Edit Product',
             error_msg: 'Please fill in all fields.',
-            product: { name, description, price, category, imageUrl, stock }
+            product: { name, description, price,discount, category, imageUrl, stock }
         });
     }
     console.log('Updating product with ID:', req.params.id);
-    console.log('New values:', { name, description, price, category, imageUrl, stock, featured });
+    console.log('New values:', { name, description, price,discount, category, imageUrl, stock, featured });
 
     await Product.findByIdAndUpdate(req.params.id, {
         name,
         description,
         price: parseFloat(price),
+        discount: parseFloat(discount) || 0, // Default to 0 if not provided
         category,
         imageUrl: imageUrl.split(',').map(url => url.trim()),
         stock: parseInt(stock),

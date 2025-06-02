@@ -12,6 +12,7 @@
                     <th>Name</th>
                     <th>Price</th>
                     <th>Qty</th>
+                    <th>discount</th>
                     <th>Subtotal</th>
                     <th>Remove</th>
                 </tr>
@@ -30,6 +31,13 @@
                               <input type="number" name="quantity" value="<%= item.quantity %>" min="0" class="qty-input">
                               <button type="submit">Update</button>
                             </form>
+                        </td>
+                        <td>
+                            <% if (item.discount > 0) { %>
+                                <%= item.discount %>
+                            <% } else { %>
+                                NO
+                            <% } %>
                         </td>
                         <td>$<%= (item.price * item.quantity).toFixed(2) %></td>
                         <td>

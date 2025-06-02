@@ -30,10 +30,14 @@ exports.addToCart = async (req, res) => {
     if (existingItem) {
         existingItem.quantity += quantity;
     } else {
+        if (product.discount > 0) {
+            product.price = product.price - (product.price * (product.discount / 100));
+        }
         cart.items.push({
             productId: product.id,
             name: product.name,
             price: product.price,
+            discount: product.discount,
             quantity: quantity,
             image: product.images?.[0] || '/images/product-placeholder.jpg'
         });

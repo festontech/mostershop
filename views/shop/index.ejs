@@ -14,6 +14,18 @@
         <p>No products found.</p>
     <% } %>
 </div>
+<h1 class="page-title">discount products</h1>
+<span class="page-description">Check out our discounted products for great savings.</span>
+<div class="product-grid">
+    <% if (discountedProducts && discountedProducts.length > 0) { %>
+        <% discountedProducts.forEach(product => { %>
+            <%- include('../partials/product-card', { product: product }) %>
+        <% }) %>
+    <% } else { %>
+        <p>No discounted products found.</p>
+    <% } %>
+</div>	
+<!-- Latest Products Section -->
 <h1 class="page-title">Latest Products</h1>
 <span class="page-description">Discover the latest additions to our product lineup.</span>
 <div class="product-grid">

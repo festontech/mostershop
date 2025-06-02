@@ -27,10 +27,12 @@
         </h2>
         <div class="product-price">
             <div>
-                <% if (product.oldPrice) { %>
-                <span class="price-old">$<%= product.oldPrice.toFixed(2) %></span>
+                <% if (product.discount > 0) { %>
+                  <span class="price-old">$<%= product.price.toFixed(2) %></span>
+                  <span class="price">$<%= (product.price * (1 - product.discount / 100)).toFixed(2) %></span>
+                <% } else { %>
+                  <span class="price">$<%= product.price.toFixed(2) %></span>
                 <% } %>
-                <span class="price">$<%= product.price.toFixed(2) %></span>
             </div>
             <button class="add-to-cart" data-id="<%= product._id %>">
                 <i class="fas fa-shopping-cart"></i> 
