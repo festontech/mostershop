@@ -52,11 +52,11 @@
     <% orders.forEach(order => { %>
       <tr>
         <td><%= order._id %></td>
-        <td><%= order.user.name %></td>
+        <td><%= order.user?.naam || 'Unknown user' %></td>
         <td><span class="badge bg-secondary"><%= order.status %></span></td>
         <td>$<%= order.total.toFixed(2) %></td>
         <td>
-          <form method="POST" action="/orders/<%= order._id %>/status">
+          <form method="POST" action="/admin/order/status/<%= order._id %>" class="d-inline">
             <select name="status" class="form-select form-select-sm d-inline w-auto">
               <% ['Pending', 'Processing', 'Shipped', 'Delivered', 'Cancelled'].forEach(s => { %>
                 <option value="<%= s %>" <%= s === order.status ? 'selected' : '' %>><%= s %></option>

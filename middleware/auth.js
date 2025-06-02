@@ -22,5 +22,5 @@ const isAdmin = (req, res, next) => {
     message: 'You do not have permission to access this page'
   });
 };
-
 module.exports = { isAuth, isAdmin };
+

@@ -18,16 +18,17 @@ router.get('/products/edit/:id', adminController.getEditProductPage);
 router.post('/products/add', adminController.addProduct);
 router.post('/products/edit/:id', adminController.updateProduct);
 router.post('/products/delete/:id', adminController.deleteProduct);
-
+// Category management
+router.get('/categories', adminController.getAllCategories);
+router.post('/categories/add', adminController.AddCategory);
+router.post('/categories/delete/:id', adminController.removeCategory);
 // Order management
-router.get('/orders', adminController.getAllOrders);
-router.get('/orders/:id', adminController.getOrderById);
-router.post('/orders/:id/status', adminController.updateOrderStatus);
+router.post('/order/status/:id', adminController.updateOrderStatus);
 
 // User management
-router.get('/users', adminController.getAllUsers);
-router.get('/users/:id', adminController.getUserById);
-router.post('/users/:id/role', adminController.updateUserRole);
-router.post('/users/:id/status', adminController.updateUserStatus);
+// router.get('/users', adminController.getAllUsers);
+// router.get('/users/:id', adminController.getUserById);
+// router.post('/users/:id/role', adminController.updateUserRole);
+// router.post('/users/:id/status', adminController.updateUserStatus);
 
 module.exports = router;

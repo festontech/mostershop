@@ -4,8 +4,33 @@
 
         <form action="/auth/register" method="POST">
             <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required class="form-control" placeholder="Enter your name">
+                <label for="naam">voledige naam</label>
+                <input type="text" id="naam" name="naam" required class="form-control" placeholder="Enter your name">
+            </div>
+
+            <div class="form-group">
+                <label for="adres">adres</label>
+                <input type="text" id="adres" name="adres" required class="form-control" placeholder="Street + number">
+            </div>
+
+            <div class="form-group">
+                <label for="postcode">Postcode</label>
+                <input type="text" id="postcode" name="postcode" required class="form-control" placeholder="1234 AB">
+            </div>
+
+            <div class="form-group">
+                <label for="woonplaats">woonplaats</label>
+                <input type="text" id="woonplaats" name="woonplaats" required class="form-control" placeholder="Enter your city">
+            </div>
+
+            <div class="form-group">
+                <label for="land">land</label>
+                <input type="text" id="land" name="land" required class="form-control" placeholder="Enter your country">
+            </div>
+
+            <div class="form-group">
+                <label for="telefoonnummer">telefoonnummer</label>
+                <input type="tel" id="telefoonnummer" name="telefoonnummer" class="form-control" placeholder="Optional phone number">
             </div>
 
             <div class="form-group">

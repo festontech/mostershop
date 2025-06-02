@@ -1,6 +1,7 @@
 const Product = require('../models/Product');
 const Order = require('../models/Order');
 const User = require('../models/User');
+const Category = require('../models/Category');
 
 // Dashboard
 exports.getDashboard = async (req, res, next) => {
@@ -8,7 +9,7 @@ exports.getDashboard = async (req, res, next) => {
         const productCount = await Product.countDocuments();
         const orderCount = await Order.countDocuments();
         const userCount = await User.countDocuments();
-        const orders = await Order.find().lean();
+        const orders = await Order.find().populate('user', 'naam').lean();
 
         res.render('admin/dashboard', {
             title: 'Admin Dashboard',
@@ -29,6 +30,14 @@ exports.getAllProducts = async (req, res, next) => {
         next(err);
     }
 };
+exports.getAllCategories = async (req, res, next) => { 
+    try {
+        const categories = await Category.find().populate('parent','name').lean();
+        res.render('admin/category', { title: 'Manage Categories', categories });
+    } catch (err) {
+        next(err);
+    }
+}
 
 exports.getAddProductPage = (req, res) => {
     const product = {
@@ -46,8 +55,9 @@ exports.getAddProductPage = (req, res) => {
 exports.getEditProductPage = async (req, res, next) => {
     try {
         const product = await Product.findById(req.params.id).lean();
+        const categories = await Category.find().lean();
         if (!product) return res.redirect('/admin/products');
-        res.render('admin/edit-product', { title: 'Edit Product', product });
+        res.render('admin/edit-product', { title: 'Edit Product', product , categories });
     } catch (err) {
         next(err);
     }
@@ -104,7 +114,8 @@ exports.deleteProduct = async (req, res, next) => {
 // Order management
 exports.getAllOrders = async (req, res, next) => {
     try {
-        const orders = await Order.find().populate('user').lean();
+        const orders = await Order.find().populate('user', 'name').lean();
+
         res.render('admin/orders', { title: 'Manage Orders', orders });
     } catch (err) {
         next(err);
@@ -122,48 +133,100 @@ exports.getOrderById = async (req, res, next) => {
 };
 
 exports.updateOrderStatus = async (req, res, next) => {
+    if (!req.body.status) {
+        return res.status(400).send('Status is required');
+    }
+    if (!req.params.id) {
+        return res.status(400).send('Order ID is required');
+    }
+    console.log('Received request to update order status:', req.body.status, 'for order ID:', req.params.id);
     try {
+        const validStatuses = ['Pending', 'Processing', 'Shipped', 'Delivered', 'Cancelled'];
+        if (!validStatuses.includes(req.body.status)) {
+            return res.status(400).send('Invalid status');
+        }
+        console.log('Updating order status for ID:', req.params.id, 'to:', req.body.status);
+
         await Order.findByIdAndUpdate(req.params.id, { status: req.body.status });
-        res.redirect(`/admin/orders/${req.params.id}`);
+        res.redirect(`/admin/dashboard`);
     } catch (err) {
         next(err);
     }
 };
 
-// User management
-exports.getAllUsers = async (req, res, next) => {
+exports.AddCategory = async (req, res, next) => {
     try {
-        const users = await User.find().lean();
-        res.render('admin/users', { title: 'Manage Users', users });
+        const { name, parent } = req.body;
+
+        // Generate ID with prefix based on name, e.g., 'monster'
+        const prefix = name.toLowerCase().replace(/\s+/g, '_'); // e.g., "Monster Stuff" → "monster_stuff"
+
+        // Find the latest ID with the same prefix
+        const latestCategory = await Category.findOne({ id: { $regex: `^${prefix}_\\d+$` } })
+            .sort({ id: -1 })
+            .exec();
+
+        let number = 1;
+        if (latestCategory && latestCategory.id) {
+            const match = latestCategory.id.match(/_(\d+)$/);
+            if (match) {
+                number = parseInt(match[1], 10) + 1;
+            }
+        }
+
+        const newId = `${prefix}_${String(number).padStart(3, '0')}`;
+
+        const newCategory = new Category({ id: newId, name, parent });
+        await newCategory.save();
+        res.redirect('/admin/categories');
     } catch (err) {
         next(err);
     }
 };
 
-exports.getUserById = async (req, res, next) => {
+exports.removeCategory = async (req, res, next) => {
     try {
-        const user = await User.findById(req.params.id).lean();
-        if (!user) return res.redirect('/admin/users');
-        res.render('admin/user-detail', { title: 'User Detail', user });
+        await Category.findByIdAndDelete(req.params.id);
+        res.redirect('/admin/categories');
     } catch (err) {
         next(err);
     }
-};
+}
 
-exports.updateUserRole = async (req, res, next) => {
-    try {
-        await User.findByIdAndUpdate(req.params.id, { role: req.body.role });
-        res.redirect(`/admin/users/${req.params.id}`);
-    } catch (err) {
-        next(err);
-    }
-};
+// // User management
+// exports.getAllUsers = async (req, res, next) => {
+//     try {
+//         const users = await User.find().lean();
+//         res.render('admin/users', { title: 'Manage Users', users });
+//     } catch (err) {
+//         next(err);
+//     }
+// };
 
-exports.updateUserStatus = async (req, res, next) => {
-    try {
-        await User.findByIdAndUpdate(req.params.id, { isActive: req.body.isActive });
-        res.redirect(`/admin/users/${req.params.id}`);
-    } catch (err) {
-        next(err);
-    }
-};
+// exports.getUserById = async (req, res, next) => {
+//     try {
+//         const user = await User.findById(req.params.id).lean();
+//         if (!user) return res.redirect('/admin/users');
+//         res.render('admin/user-detail', { title: 'User Detail', user });
+//     } catch (err) {
+//         next(err);
+//     }
+// };
+
+// exports.updateUserRole = async (req, res, next) => {
+//     try {
+//         await User.findByIdAndUpdate(req.params.id, { role: req.body.role });
+//         res.redirect(`/admin/users/${req.params.id}`);
+//     } catch (err) {
+//         next(err);
+//     }
+// };
+
+// exports.updateUserStatus = async (req, res, next) => {
+//     try {
+//         await User.findByIdAndUpdate(req.params.id, { isActive: req.body.isActive });
+//         res.redirect(`/admin/users/${req.params.id}`);
+//     } catch (err) {
+//         next(err);
+//     }
+// };

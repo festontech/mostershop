@@ -25,8 +25,20 @@
             <div class="form-group">
                 <label for="category">Category:</label>
                 <select id="category" name="category" required>
-                    <% ['energy', 'ultra', 'beast', 'juicy','limitted', 'Beauty', 'Sports', 'Other'].forEach(function(cat) { %>
-                        <option value="<%= cat %>" <%= product.category === cat ? 'selected' : '' %>><%= cat %></option>
+                    <option value="">Select a category</option>
+                    <% categories.forEach(function(cat) { %>
+                        <% if (!cat.parent) { %>
+                            <!-- Parent category -->
+                            <option value="<%= cat._id %>" <%= product.category === cat._id ? 'selected' : '' %>>
+                                <%= cat.name %>
+                            </option>
+                            <!-- Child categories -->
+                            <% categories.filter(child => child.parent === cat._id).forEach(function(child) { %>
+                                <option value="<%= child._id %>" <%= product.category === child._id ? 'selected' : '' %>>
+                                    &nbsp;&nbsp;└ <%= child.name %>
+                                </option>
+                            <% }) %>
+                        <% } %>
                     <% }) %>
                 </select>
             </div>

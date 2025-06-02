@@ -1,4 +1,4 @@
-// models/Product.js - Product schema
+// models/Product.js
 const mongoose = require('mongoose');
 
 const ProductSchema = new mongoose.Schema({
@@ -18,8 +18,8 @@ const ProductSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    required: true,
-    enum: ['energy', 'ultra', 'beast', 'juicy','limitted', 'Beauty', 'Sports', 'Other']
+    ref: 'Category',
+    required: true
   },
   imageUrl: {
     type: [String],

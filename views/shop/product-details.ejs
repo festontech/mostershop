@@ -30,7 +30,7 @@
 
     <div class="col-md-6">
       <h1><%= product.name %></h1>
-      <p class="text-muted"><strong>Category:</strong> <%= product.category %></p>
+      <p class="text-muted"><strong>Category:</strong> <%= product.category?.name || 'Uncategorized' %></p>
       <div class="product-price mb-3">
         <% if (product.oldPrice) { %>
           <span class="text-decoration-line-through me-2">$<%= product.oldPrice.toFixed(2) %></span>
@@ -39,10 +39,20 @@
       </div>
       <p><%= product.description || 'No description available.' %></p>
       <form action="/cart/add/<%= product._id %>" method="POST">
-        <button class="btn btn-primary" type="submit">
-          <i class="fas fa-shopping-cart me-1"></i> Add to Cart
-        </button>
-      </form>
+  <div class="d-flex align-items-center mb-3">
+    <input
+      type="number"
+      name="quantity"
+      class="form-control w-25 me-2"
+      value="1"
+      min="1"
+      required
+    >
+    <button class="btn btn-primary" type="submit">
+      <i class="fas fa-shopping-cart me-1"></i> Add to Cart
+    </button>
+  </div>
+</form>
       <% if (product.discount > 0) { %>
         <div class="badge bg-danger mt-3">-<%= product.discount %>%</div>
       <% } else if (product.isNew) { %>

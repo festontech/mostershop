@@ -25,15 +25,15 @@
                         <td><%= item.name %></td>
                         <td>$<%= item.price.toFixed(2) %></td>
                         <td>
-                            <form action="/cart/update" method="POST">
-                                <input type="hidden" name="id" value="<%= item.id %>">
-                                <input type="number" name="qty" value="<%= item.quantity %>" min="1" class="qty-input">
-                                <button type="submit">Update</button>
+                            <form action="/cart/update/<%= item.productId %>" method="POST">
+                              <input type="hidden" name="itemId" value="<%= item.productId %>">
+                              <input type="number" name="quantity" value="<%= item.quantity %>" min="0" class="qty-input">
+                              <button type="submit">Update</button>
                             </form>
                         </td>
                         <td>$<%= (item.price * item.quantity).toFixed(2) %></td>
                         <td>
-                            <form action="/cart/remove" method="POST">
+                            <form action="/cart/remove/<%= item.productId %>" method="POST">
                                 <input type="hidden" name="id" value="<%= item.id %>">
                                 <button type="submit" class="remove-btn">×</button>
                             </form>

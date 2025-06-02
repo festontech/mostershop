@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupAddToCartButtons();
     setupQuickView();
     setupMobileNav();
+    updateCartCount();
     // Add more features as needed
 });
 
@@ -23,9 +24,11 @@ function setupAddToCartButtons() {
                         'Content-Type': 'application/json'
                     }
                 });
+                updateCartCount();
 
                 if (res.ok) {
                     console.log('Product added to cart!');
+
                     // Optionally update cart badge here
                 } else {
                     alert('❌ Failed to add to cart');
@@ -60,4 +63,15 @@ function setupMobileNav() {
             nav.classList.toggle('open');
         });
     }
+}
+function updateCartCount() {
+  fetch('/cart/count')
+    .then(res => res.json())
+    .then(data => {
+      const badge = document.querySelector('.cart-count');
+      if (badge) {
+        badge.textContent = data.count;
+      }
+    })
+    .catch(err => console.error('Failed to fetch cart count:', err));
 }

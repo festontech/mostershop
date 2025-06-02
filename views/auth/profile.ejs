@@ -2,8 +2,17 @@
   <h2>Your Profile</h2>
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title"><%= user.name %></h4>
+      <h4 class="card-title"><%= user.naam %></h4>
+
       <p class="card-text"><strong>Email:</strong> <%= user.email %></p>
+      <p class="card-text"><strong>Phone:</strong> <%= user.telefoonnummer || '—' %></p>
+      
+      <p class="card-text"><strong>Address:</strong><br>
+        <%= user.adres %><br>
+        <%= user.postcode %> <%= user.woonplaats %><br>
+        <%= user.land %>
+      </p>
+
       <p class="card-text"><strong>Role:</strong> <%= user.role %></p>
       <p class="card-text"><strong>Joined:</strong> <%= new Date(user.createdAt).toDateString() %></p>
     </div>

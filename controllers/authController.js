@@ -1,5 +1,5 @@
 exports.getLoginPage = (req, res) => {
-    res.render('auth/login', { title: 'Login' });
+    res.render('auth/login', { title: 'Login' , pageJS: 'login'});
 };
 
 exports.getRegisterPage = (req, res) => {
@@ -27,7 +27,7 @@ const bcrypt = require('bcryptjs');
 
 // Show login page (GET route - assumed already implemented)
 exports.getLoginPage = (req, res) => {
-    res.render('auth/login', { title: 'Login' });
+    res.render('auth/login', { title: 'Login' ,pageJS: 'login'});
 };
 
 // Show register page (GET route - assumed already implemented)
@@ -36,13 +36,25 @@ exports.getRegisterPage = (req, res) => {
 };
 
 // Handle registration
-exports.register = async (req, res, next) => {
-    const { name, email, password, confirmPassword } = req.body;
 
+exports.register = async (req, res, next) => {
+    const {
+        naam,
+        adres,
+        postcode,
+        woonplaats,
+        land,
+        telefoonnummer,
+        email,
+        password,
+        confirmPassword
+    } = req.body;
+
+    // Basic validation
     if (password !== confirmPassword) {
         return res.render('auth/register', {
             error_msg: 'Passwords do not match',
-            name, email
+            naam, adres, postcode, woonplaats, land, telefoonnummer, email
         });
     }
 
@@ -51,24 +63,30 @@ exports.register = async (req, res, next) => {
         if (user) {
             return res.render('auth/register', {
                 error_msg: 'Email already registered',
-                name, email
+                naam, adres, postcode, woonplaats, land, telefoonnummer, email
             });
         }
 
         const hashedPassword = await bcrypt.hash(password, 12);
 
         user = new User({
-            name,
+            naam,
+            adres,
+            postcode,
+            woonplaats,
+            land,
+            telefoonnummer,
             email,
             password: hashedPassword
         });
 
         await user.save();
-        res.redirect('/login');
+        res.redirect('/auth/login');
     } catch (err) {
         next(err);
     }
 };
+
 
 // Handle login
 exports.login = async (req, res, next) => {

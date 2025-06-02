@@ -2,10 +2,35 @@
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
-  name: {
+  naam: {
     type: String,
     required: true,
     trim: true
+  },
+  adres: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  postcode: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  woonplaats: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  land: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  telefoonnummer: {
+    type: String,
+    trim: true,
+    required: false
   },
   email: {
     type: String,

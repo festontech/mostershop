@@ -1,0 +1,47 @@
+[
+    {
+      "_id": "energy_drinks_001",
+      "name": "Energy Drinks",
+      "parent": null
+    },
+    {
+      "_id": "monster_001",
+      "name": "Monster",
+      "parent": null
+    },
+    {
+      "_id": "red_bull_001",
+      "name": "Red Bull",
+      "parent": null
+    },
+    {
+      "_id": "monster_ultra_001",
+      "name": "Ultra",
+      "parent": "monster_001"
+    },
+    {
+      "_id": "monster_juiced_001",
+      "name": "Juiced",
+      "parent": "monster_001"
+    },
+    {
+      "_id": "monster_original_001",
+      "name": "Original",
+      "parent": "monster_001"
+    },
+    {
+      "_id": "monster_assault_001",
+      "name": "Assault",
+      "parent": "monster_001"
+    },
+    {
+      "_id": "red_bull_energy_001",
+      "name": "Energy",
+      "parent": "red_bull_001"
+    },
+    {
+      "_id": "red_bull_sugar_free_001",
+      "name": "Sugar Free",
+      "parent": "red_bull_001"
+    }
+]
