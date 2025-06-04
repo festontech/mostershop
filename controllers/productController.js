@@ -8,7 +8,7 @@ exports.getAllHomeProducts = async (req, res, next) => {
         const latestProducts = await Product.find().sort({ createdAt: -1 }).limit(8).lean();
         const discountedProducts = await Product.find({ discount: { $gt: 0 } }).limit(8).lean();
         res.render('shop/index', {
-            title: 'Featured Products',
+            title: 'MonsterShop',
             featuredProducts: featuredProducts,
             latestProducts: latestProducts,
             discountedProducts: discountedProducts,

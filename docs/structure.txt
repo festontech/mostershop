@@ -1,0 +1,132 @@
+mostershop/
+├── .env
+├── .git/
+├── .gitignore
+├── .vscode/
+├── LICENSE
+├── README.md
+├── app.js
+├── config/
+│   └── db.js
+├── controllers/
+│   ├── adminController.js
+│   ├── authController.js
+│   ├── cartController.js
+│   ├── orderController.js
+│   └── productController.js
+├── docs/
+│   ├── Schermafbeelding 2025-06-04 101030.png
+│   ├── Schermafbeelding 2025-06-04 101100.png
+│   ├── Schermafbeelding 2025-06-04 101114.png
+│   └── structure.txt
+├── middleware/
+│   ├── auth.js
+│   ├── cart.js
+│   └── errorHandler.js
+├── models/
+│   ├── Category.js
+│   ├── Order.js
+│   ├── Product.js
+│   └── User.js
+├── node_modules/
+├── package-lock.json
+├── package.json
+├── public/
+│   ├── css/
+│   │   ├── main.css
+│   │   ├── partials.css
+│   │   ├── responsive.css
+│   │   └── style.css
+│   ├── images/
+│   │   ├── logo.png
+│   │   ├── monster-energy-full-throttle-zero-sugar-12-x-500-ml-2.webp
+│   │   ├── monster-energy-full-throttle-zero-sugar-12-x-500-ml.png
+│   │   ├── monster-energy-juiced-aussie-style-lemonade-12-x-500-ml-2.webp
+│   │   ├── monster-energy-juiced-aussie-style-lemonade-12-x-500-ml.png
+│   │   ├── monster-energy-juiced-bad-apple-12-x-500-ml-2.webp
+│   │   ├── monster-energy-juiced-bad-apple-12-x-500-ml.png
+│   │   ├── monster-energy-juiced-khaotic-12-x-500-ml-2.webp
+│   │   ├── monster-energy-juiced-khaotic-12-x-500-ml.png
+│   │   ├── monster-energy-juiced-mango-loco-12-x-500-ml-2.webp
+│   │   ├── monster-energy-juiced-mango-loco-12-x-500-ml.png
+│   │   ├── monster-energy-juiced-monarch-12-x-500-ml-2.webp
+│   │   ├── monster-energy-juiced-monarch-12-x-500-ml.png
+│   │   ├── monster-energy-mixxd-punch-12-x-500-ml-3.webp
+│   │   ├── monster-energy-mixxd-punch-12-x-500-ml.png
+│   │   ├── monster-energy-original-12-x-500-ml-2.webp
+│   │   ├── monster-energy-original-12-x-500-ml.png
+│   │   ├── monster-energy-original-zero-sugar-12-x-500-ml-2.webp
+│   │   ├── monster-energy-original-zero-sugar-12-x-500-ml.png
+│   │   ├── monster-energy-pacific-punch-12-x-500-ml-2.webp
+│   │   ├── monster-energy-pacific-punch-12-x-500-ml.png
+│   │   ├── monster-energy-pipeline-punch-12-x-500-ml-2.webp
+│   │   ├── monster-energy-pipeline-punch-12-x-500-ml.png
+│   │   ├── monster-energy-the-doctor-12-x-500-ml-2.webp
+│   │   ├── monster-energy-the-doctor-12-x-500-ml.png
+│   │   ├── monster-energy-ultra-black-12-x-500-ml-2.webp
+│   │   ├── monster-energy-ultra-black-12-x-500-ml.png
+│   │   ├── monster-energy-ultra-blue-12-x-500-ml-2.webp
+│   │   ├── monster-energy-ultra-blue-12-x-500-ml.png
+│   │   ├── monster-energy-ultra-fantasy-ruby-red-12-x-500-ml-2.webp
+│   │   ├── monster-energy-ultra-fantasy-ruby-red-12-x-500-ml.png
+│   │   ├── monster-energy-ultra-fiesta-mango-12-x-500-ml-2.webp
+│   │   ├── monster-energy-ultra-fiesta-mango-12-x-500-ml.png
+│   │   ├── monster-energy-ultra-gold-12-x-500-ml-2.webp
+│   │   ├── monster-energy-ultra-gold-12-x-500-ml.png
+│   │   ├── monster-energy-ultra-paradise-12-x-500-ml-2.webp
+│   │   ├── monster-energy-ultra-paradise-12-x-500-ml.png
+│   │   ├── monster-energy-ultra-peachy-keen-12-x-500-ml-2.webp
+│   │   ├── monster-energy-ultra-peachy-keen-12-x-500-ml.png
+│   │   ├── monster-energy-ultra-rosa-12-x-500-ml-2.webp
+│   │   ├── monster-energy-ultra-rosa-12-x-500-ml.png
+│   │   ├── monster-energy-ultra-strawberry-dreams-12-x-500-ml-2.webp
+│   │   ├── monster-energy-ultra-strawberry-dreams-12-x-500-ml.png
+│   │   ├── monster-energy-ultra-violet-12-x-500-ml-2.webp
+│   │   ├── monster-energy-ultra-violet-12-x-500-ml.png
+│   │   ├── monster-energy-ultra-watermelon-12-x-500-ml-2.webp
+│   │   ├── monster-energy-ultra-watermelon-12-x-500-ml.png
+│   │   ├── monster-energy-ultra-white-12-x-500-ml-2.png
+│   │   ├── monster-energy-ultra-white-12-x-500-ml.png
+│   │   ├── red-bull-original-24-x-250-ml-2.webp
+│   │   └── red-bull-original-24-x-250-ml.png
+│   └── js/
+│       ├── detail.js
+│       ├── login.js
+│       ├── main.js
+│       └── product.js
+├── routes/
+│   ├── adminRoutes.js
+│   ├── authRoutes.js
+│   └── shopRoutes.js
+├── utils/
+│   ├── cat.json
+│   ├── catutil.js
+│   ├── product.json
+│   ├── products.json
+│   └── productsv3.json
+└── views/
+    ├── admin/
+    │   ├── category.ejs
+    │   ├── dashboard.ejs
+    │   ├── edit-product.ejs
+    │   └── products.ejs
+    ├── auth/
+    │   ├── login.ejs
+    │   ├── profile.ejs
+    │   └── register.ejs
+    ├── error.ejs
+    ├── layouts/
+    │   └── main.ejs
+    ├── partials/
+    │   ├── footer.ejs
+    │   ├── navbar.ejs
+    │   └── product-card.ejs
+    ├── shop/
+    │   ├── cart.ejs
+    │   ├── checkout.ejs
+    │   ├── index.ejs
+    │   ├── product-details.ejs
+    │   └── product.ejs
+    └── user/
+        ├── order-details.ejs
+        └── orders.ejs
