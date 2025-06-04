@@ -24,6 +24,7 @@ router.get('/cart', cartController.getCart);
 router.post('/cart/add/:id', cartController.addToCart);
 router.post('/cart/update/:id', cartController.updateCartItem);
 router.post('/cart/remove/:id', cartController.removeFromCart);
+// API: Get cart count (for header)
 router.get('/cart/count', cartController.getCartCount);
 // Order routes (protected)
 router.get('/orders', isAuth, orderController.getUserOrders);

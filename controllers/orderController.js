@@ -16,10 +16,10 @@ exports.getOrderById = async (req, res, next) => {
         const order = await Order.findOne({
             _id: req.params.id,
             user: req.session.user._id
-        }).lean();
+        }).populate('user').lean();
 
         if (!order) return res.redirect('/orders');
-        res.render('shop/order-detail', { title: 'Order Details', order });
+        res.render('user/order-details', { title: 'Order Details', order });
     } catch (err) {
         next(err);
     }

@@ -16,7 +16,7 @@
       <tbody>
         <% orders.forEach(order => { %>
           <tr>
-            <td><%= order._id %></td>
+            <td><a href="/orders/<%= order._id %>"><%= order._id %></a></td>
             <td><%= new Date(order.createdAt).toLocaleDateString() %></td>
             <td><span class="badge bg-info text-dark"><%= order.status %></span></td>
             <td>$<%= order.total.toFixed(2) %></td>

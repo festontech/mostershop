@@ -18,65 +18,6 @@ exports.getAllHomeProducts = async (req, res, next) => {
     }
 };
 
-// GET /shop
-exports.getAllProducts = async (req, res, next) => {
-  try {
-    console.log('Query Parameters:', req.query);
-    const sort = req.query.sort || '';
-    const category = req.query.category || '';
-    const subcategory = req.query.subcategory || '';
-
-    let sortOption = {};
-    switch (sort) {
-      case 'price_asc':
-        sortOption = { price: 1 };
-        break;
-      case 'price_desc':
-        sortOption = { price: -1 };
-        break;
-      case 'name_asc':
-        sortOption = { name: 1 };
-        break;
-      case 'name_desc':
-        sortOption = { name: -1 };
-        break;
-    }
-
-    const filter = {};
-
-    // Filter by category string ID directly if provided
-    if (category) {
-      filter.category = category;
-    }
-
-    // Get filtered & sorted products
-    const products = await Product.find(filter)
-      .sort(sortOption)
-      .populate('category') // to get full category details
-      .lean();
-
-    // Get all categories (or only those that exist in products)
-    // Option 1: All categories
-    const cat = await Category.find().lean();
-    const categories = buildNameTree(cat);
-    // Option 2: Only categories linked to products
-    // const categoryIds = await Product.distinct('category');
-    // const categories = await Category.find({ _id: { $in: categoryIds } }).lean();
-    // console.log('Categories:', categories);
-
-    res.render('shop/product', {
-      title: 'All Products',
-      products,
-      sort,
-      category,
-      categories,
-      subcategory,
-    });
-  } catch (error) {
-    next(error);
-  }
-}
-
 
 
 // GET /shop/product/:id

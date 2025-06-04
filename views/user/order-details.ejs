@@ -3,10 +3,10 @@
   <div class="card mb-4">
     <div class="card-body">
       <h5 class="card-title">Order #<%= order._id %></h5>
-      <p><strong>Status:</strong> <span class="badge bg-primary"><%= order.status %></span></p>
+      <p><strong>Status:</strong> <span class="badge"><%= order.status %></span></p>
       <p><strong>Total:</strong> $<%= order.total.toFixed(2) %></p>
       <p><strong>Placed on:</strong> <%= new Date(order.createdAt).toLocaleString() %></p>
-      <p><strong>Customer:</strong> <%= order.user?.name || 'N/A' %> (<%= order.user?.email || '' %>)</p>
+      <p><strong>Customer:</strong> <%= order.user?.naam || 'N/A' %> (<%= order.user?.email || '' %>)</p>
     </div>
   </div>
 
